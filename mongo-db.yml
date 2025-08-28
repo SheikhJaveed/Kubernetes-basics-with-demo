@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-app-diff-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-app-diff-pod
+  template:
+    metadata:
+      labels:
+        app: mongo-app-diff-pod
+    spec:
+      containers:
+      - name: mongo-app-diff-pod
+        image: mongo:latest
+        volumeMounts:
+          - mountPath: /data/db
+            name: mongo-vol
+      volumes:
+      - name: mongo-vol
+        persistentVolumeClaim:
+          claimName: host-pvc
+
+---
+# MongoDB Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-diff-mongo-app
+spec:
+  ports:
+    - port: 27017
+      targetPort: 27017
+  selector:
+    app: mongo-app-diff-pod
+  type: ClusterIP   # keep internal only
