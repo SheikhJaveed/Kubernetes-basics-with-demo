@@ -18,7 +18,6 @@ Kubernetes helps by:
 - Providing **service discovery & load balancing**.  
 - Managing **storage and configurations**.  
 
----
 
 ## 🔹 Key Features
 - **Automated Rollouts & Rollbacks** – update applications without downtime.  
@@ -54,7 +53,7 @@ to open dashboard locally in browser
 
 
 
-## buidling docker image
+## Buidling docker image
 
 > docker build -t sheikhjaveed3124/kubernetes-web-app:1.0 .
 
@@ -63,7 +62,7 @@ to open dashboard locally in browser
 > kubectl delete my-demoapp
 
 
-## rollout and rollback
+## Rollout and Rollback
 
 > kubectl set image deployment kubernetes-demo-app kubernetes-web-app=sheikhjaveed3124/kubernetes-web-app:05
 
