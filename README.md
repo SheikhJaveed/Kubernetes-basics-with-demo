@@ -35,8 +35,10 @@ Firstly we need to build an image so go to docker and check nginx official image
 
 Note: to build an image minikube should be running execute > minikube start
 
-3. use the command ->  kubectl create deployment my-nginx --image=nginx:latest  //my-nginx is variable name here an name can be given
+3. use the command ->  kubectl create deployment my-nginx --image=nginx:latest  //my-nginx is variable name here any name can be given
+   
 > kubectl get deployments
+
 > kubectl get pods
 
 execute ->  minikube addons enable metrics-server
@@ -45,10 +47,12 @@ then -> minikube dashboard
 to open dashboard locally in browser
 
 > minikube status
+
 > minikube delete  //to delete deployment
 
 
 > kubectl expose deployment my-nginx --port=80 --type=LoadBalancer
+
 > minikube service my-nginx
 
 
@@ -66,8 +70,8 @@ to open dashboard locally in browser
 
 > kubectl set image deployment kubernetes-demo-app kubernetes-web-app=sheikhjaveed3124/kubernetes-web-app:05
 
-> kubectl rollout status deployment kubernetes-demo-app-7b44bd57fb-jwngg
-> kubectl rollout status deployment kubernetes-demo-app                 
+> kubectl rollout status deployment kubernetes-demo-app
+      
 > kubectl rollout undo deployment kubernetes-demo-app  
 
 
@@ -80,6 +84,7 @@ run this as a service in Kubernetes and while running we enter /exit path -> in 
 
 
 > kubectl expose deployment kubernetes-node-demo --type=LoadBalancer --port=3000
+
 > minikube service kubernetes-node-demo
 
 
